@@ -18,4 +18,9 @@ async function seed() {
     const playlistId = 1 + Math.floor(i / 2);
     await createPlaylistTrack(playlistId, i);
   }
+  for (let i = 1; i <= 4; i++) {
+    const username = i;
+    const password = i;
+    await createUser(username, password);
+  }
 }
