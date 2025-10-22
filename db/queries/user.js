@@ -2,7 +2,7 @@ import db from "#db/client";
 
 export async function createUser(username, password) {
   const sql = `
-  INSERT INTO user
+  INSERT INTO users
     (username, password)
   VALUES
     ($1, $2)
