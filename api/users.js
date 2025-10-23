@@ -17,5 +17,9 @@ router.route("/register")
 
 router.route("/login")
 .post(requireBody(["username", "password"]), async (req, res) => {
+    const user = await getUserByUsernameAndPassword(email, password);
+    if (!user) return res.status(401).send("Invalid username or password.");
 
+    const token = createToken({ id: user.id });
+    res.status(201).send(token);
 });
