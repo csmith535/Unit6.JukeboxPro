@@ -10,6 +10,10 @@ import {
 import { createPlaylistTrack } from "#db/queries/playlists_tracks";
 import { getTracksByPlaylistId } from "#db/queries/tracks";
 
+import requireUser from "#middleware/requireUser";
+
+router.use(requireUser);
+
 router
   .route("/")
   .get(async (req, res) => {
